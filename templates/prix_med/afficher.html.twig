@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+{% block c  %}
+    <div class="d-flex align-items-center">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ asset('affichers') }}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="{{ asset('afficherMed') }}">Medicaments</a></li>
+            </ol>
+        </nav>
+    </div>
+{% endblock %}
+{% block title %}
+    <div>
+        <h4 style="color: #66ae62">List des médicaments</h4>
+
+    </div>
+    <center>
+        <a href="{{ path('addPrixMed') }}" class="fas fa-file-medical fa-3x"  ></a></center>
+
+    <div class="card">
+        <div class="card-body">
+            <table id="tableac" class="table v-middle" >
+                <thead>
+                <tr class="bg-light">
+
+                    <th class="border-top-0" >Nom Medicament</th>
+                    <th class="border-top-0" >Fournisseur</th>
+                    <th class="border-top-0" >xpgroht</th>
+                    <th class="border-top-0" >xppharht</th>
+                    <th class="border-top-0" >xprixphattc</th>
+                    <th class="border-top-0" >xprixpubttc</th>
+                    <th class="border-top-0" >Taux </th>
+                    <th class="border-top-0" >TVA</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for x in listmed %}
+                    <tr>
+
+                        <td> {{ x.medicament.nomm }}</td>
+                        <td> {{ x.xpgroht|number_format(2, '.', ' ')}}</td>
+                        <td> {{ x.xppharht|number_format(2, '.', ' ') }}</td>
+                        <td> {{ x.xprixphattc|number_format(2, '.', ' ')}}</td>
+                        <td> {{ x.xprixpubttc|number_format(2, '.', ' ') }} %</td>
+                        <td> {{ x.taux|number_format(2, '.', ' ')}}</td>
+                        <td> {{ x.tva|number_format(2, '.', ' ') }} %</td>
+
+
+                    </tr>
+                {% endfor %}</tbody>
+            </table></div></div>
+{% endblock %}

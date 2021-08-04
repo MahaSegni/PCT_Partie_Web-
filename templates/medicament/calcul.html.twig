@@ -1,0 +1,37 @@
+{% extends 'baseadd.html.twig' %}
+{% block title%}
+
+    <table class="table table-success  v-middle">
+        {{ form_start(formMed,{'attr':{'novalidate' : 'novalidate'}}) }}
+        <tr class="bg-light"> <div>
+                <td>{{ form_label(formMed.uv,'Devise ') }}</td>
+                <td>{{ form_errors(formMed.uv) }}
+                    {{ form_widget(formMed.uv) }}</td>
+            </div></tr>
+
+        <tr class="bg-light"> <div>
+                <td>{{ form_label(formMed.taux,'Taxe ') }}</td>
+                <td>{{ form_errors(formMed.taux) }}
+                    {{ form_widget(formMed.taux) }}</td>
+            </div></tr>
+
+        <tr class="bg-light"> <div>
+                <td>{{ form_label(formMed.tva,'TVA') }}</td>
+                <td>{{ form_errors(formMed.tva) }}
+                    {{ form_widget(formMed.tva) }}</td>
+            </div></tr>
+        <tr class="bg-light"> <div>
+                <td>{{ form_label(formMed.xug,'Type de produit') }}</td>
+                <td>{{ form_errors(formMed.xug) }}
+                    {{ form_widget(formMed.xug) }}</td>
+            </div></tr>
+        <tr class="bg-light"> <div>
+
+                <td>
+                    {{ form_widget(formMed['Enregistrer']) }}</td>
+            </div>
+            <td>
+                <h1></h1></td>
+        </tr>
+        {{ form_end(formMed) }} </table>
+{% endblock %}

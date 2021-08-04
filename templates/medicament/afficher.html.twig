@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% block c  %}
+    <div class="d-flex align-items-center">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ asset('affichers') }}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="{{ asset('afficherMed') }}">Medicaments</a></li>
+            </ol>
+        </nav>
+    </div>
+{% endblock %}
+{% block title %}
+<div>
+    <h4 style="color: #66ae62">List des médicaments</h4>
+
+</div>
+    <center>
+
+        <a href="{{ path('addMed') }}" class="fas fa-file-medical fa-3x"  ></a></center>
+    <a href="{{ path('afficherCalcMed') }}" ><i class="fas fa-align-justify fa-3x"></i>  Liste des prix</a></center>
+    <div class="card">
+    <div class="card-body">
+        <table id="tableac" class="table v-middle" >
+            <thead>
+            <tr class="bg-light">
+                <th class="border-top-0" >id</th>
+                <th class="border-top-0" >Nom Medicament</th>
+                <th class="border-top-0" >Fournisseur</th>
+                <th class="border-top-0" >prix d'achat</th>
+                <th class="border-top-0" >quantite</th>
+                <th class="border-top-0" >remise</th>
+                <th class="border-top-0" >UG</th>
+                <th class="border-top-0" >Taux UG</th>
+
+              {#   <th class="border-top-0" >Validation</th> #}
+                <th class="border-top-0" >Calcul</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for x in listmed %}
+                <tr>
+                    <td> {{x.id}}</td>
+                    <td> {{ x.nomm}}</td>
+                    <td> {{ x.fournisseur.nomf}}</td>
+                    <td> {{ x.prixachat|number_format(2, '.', ' ') }}</td>
+                    <td> {{ x.qte}}</td>
+                    <td> {{ x.remise|number_format(2, '.', ' ') }} %</td>
+                    <td> {{ x.ug}}</td>
+                    <td> {{ x.tauxug|number_format(2, '.', ' ') }} %</td>
+
+                 {#   <td> {{ x.validation}} <a class="fas fa-check" href="{{ path('affichers')}}"></a><a><br></a><a class="fas fa-times-circle"></a></td>
+                 #}<td>  <a class="fas fa-check" href="{{ path('CalculMed',{'id':x.id})}}"></a></td>
+
+                </tr>
+            {% endfor %}</tbody>
+        </table></div></div>
+{% endblock %}

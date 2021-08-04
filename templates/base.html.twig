@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ADMIN</title>
+    {% block stylesheets %}
+
+        <!-- Favicon icon -->
+
+        <link href="{{ asset( '../libs/chartist/dist/chartist.min.css')}}" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="{{ asset( '../dist/css/style.min.css')}}" rel="stylesheet">
+    {% endblock %}
+    {% block javascripts %}
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+    <script src="{{ asset( '../assets/libs/jquery/dist/jquery.min.js')}}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{{ asset( '../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset( '../dist/js/app-style-switcher.js')}}"></script>
+    <!--Wave Effects -->
+    <script src="{{ asset( '../dist/js/waves.js')}}"></script>
+    <!--Menu sidebar -->
+    <script src="{{ asset( '../dist/js/sidebarmenu.js')}}"></script>
+    <!--Custom JavaScript -->
+    <script src="{{ asset( '../dist/js/custom.js')}}"></script>
+    <!--This page JavaScript -->
+    <!--chartis chart-->
+    <script src="{{ asset( '../assets/libs/chartist/dist/chartist.min.js')}}"></script>
+    <script src="{{ asset( '../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
+    <script src="{{ asset( '../dist/js/pages/dashboards/dashboard1.js')}}"></script>
+    {% endblock %}
+</head>
+
+<body>
+{% block body %}
+<div class="preloader">
+    <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+     data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+  <header class="topbar" style="background-color: #66ae62" >
+        <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+            <div class="navbar-header" style="background-color: #66ae62">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <a class="navbar-brand" href="index.html.twig">
+                    <!-- Logo icon -->
+                    <b class="logo-icon">
+                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                        <!-- Dark Logo icon -->
+                        <img src="{{ asset( '../assets/images/logo.png')}}" width="150" height="70" alt="logo" />
+                        <!-- Light Logo icon -->
+                         </b>
+                    <!--End Logo icon -->
+                    <!-- Logo text -->
+                    <span class="logo-text">
+                            <!-- dark Logo text -->
+                        <h4>La Pharmacie Centrale de Tunisie</h4>
+                             </span>
+
+                </a>
+                <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
+                            class="ti-menu ti-close"></i></a>
+
+
+                <center>
+                    {% if app.user %}
+
+                        <h2 style="font-size: 15px ;color: #0a0a0a" >   {{ app.user.email }} ,
+
+
+                    <a href="{{ asset('logout') }}" style="text-align : left; color: white" ><i
+                                class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a></h2></center>
+                {% endif %}
+            </div>
+
+
+        </nav>
+
+    </header>
+
+    <aside class="left-sidebar" data-sidebarbg="skin6">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav">
+                    <!-- User Profile-->
+                    <li>
+                        <h5>    <br></h5>
+                    </li>
+                    <!-- User Profile-->
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                                 href="{{ path('affichers')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                                    class="hide-menu">Dashboard</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                                 href="{{ path('afficherfour')}}" aria-expanded="false"><i
+                                    class="mdi mdi-account-network"></i><span class="hide-menu">Fournisseur</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                                 href="{{ path('afficherMed')}}" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
+                                    class="hide-menu">Medicament</span></a></li>
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </aside>
+    <div class="page-wrapper">
+        <div class="page-breadcrumb">
+            <div class="row align-items-center">
+                <div class="col-5">
+                    <h4 class="page-title">Dashboard</h4>
+                   {% block c %}{% endblock %}
+                </div>
+
+            </div>
+        </div>
+        <div class="container-fluid">
+
+            <div class="row">
+                <!-- column -->
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- title -->
+                            <div class="d-md-flex">
+                                <div class="ms-auto">
+                                    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+                                    <script>
+                                        $(document).ready(function(){
+                                            $('#search').keyup(function(){
+                                                search_table($(this).val());
+                                            });
+                                            function search_table(value){
+                                                $('#tableac tbody tr').each(function(){
+                                                    var found = 'false';
+                                                    $(this).each(function(){
+                                                        if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                                        {
+                                                            found = 'true';
+                                                        }
+                                                    });
+                                                    if(found == 'true')
+                                                    {
+                                                        $(this).show();
+                                                    }
+                                                    else
+                                                    {
+                                                        $(this).hide();
+
+                                                    }
+                                                });
+                                            }
+                                        });
+                                    </script>
+                                    <div valign="top">
+                                        <input type="text" class="form-control mr-sm-2 " id="search" name="search"  placeholder="recherche">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- title -->
+                        </div>
+
+                        <div class="table-responsive">
+                            {% block title %} {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+</body>
+{% endblock %}
+</html>

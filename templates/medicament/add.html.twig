@@ -1,0 +1,53 @@
+{% extends 'baseadd.html.twig' %}
+{% block title%}
+
+<table class="table table-success  v-middle">
+    {{ form_start(formMed,{'attr':{'novalidate' : 'novalidate'}}) }}
+    <tr class="bg-light"><div>
+            <td>{{ form_label(formMed.nomm,'Nom Médicament') }}</td>
+            <td >{{ form_errors(formMed.nomm) }}
+                {{ form_widget(formMed.nomm) }}</td>
+        </div></tr>
+    <tr class="bg-light"><div>
+            <td>{{ form_label(formMed.prix_achat,'prix') }}</td>
+            <td>{{ form_errors(formMed.prix_achat) }}
+                {{ form_widget(formMed.prix_achat) }}</td>
+        </div></tr>
+    <tr class="bg-light"> <div>
+            <td>{{ form_label(formMed.qte,'Quantite') }}</td>
+            <td>{{ form_errors(formMed.qte) }}
+                {{ form_widget(formMed.qte) }}</td>
+        </div></tr>
+    <tr class="bg-light"> <div>
+            <td>{{ form_label(formMed.remise,'remise') }}</td>
+            <td>{{ form_errors(formMed.remise) }}
+                {{ form_widget(formMed.remise) }}</td>
+        </div></tr>
+    <tr class="bg-light"> <div>
+            <td>{{ form_label(formMed.ug,'UG') }}</td>
+            <td>{{ form_errors(formMed.ug) }}
+                {{ form_widget(formMed.ug) }}</td>
+        </div></tr>
+    <tr class="bg-light"> <div>
+            <td>{{ form_label(formMed.tauxug,'Taux UG') }}</td>
+            <td>{{ form_errors(formMed.tauxug) }}
+                {{ form_widget(formMed.tauxug) }}</td>
+        </div></tr>
+
+    <tr class="bg-light"> <div>
+            <td>{{ form_label(formMed.fournisseur,'Fournisseur') }}</td>
+            <td>{{ form_errors(formMed.fournisseur) }}
+                {{ form_widget(formMed.fournisseur) }}</td>
+        </div></tr>
+    <tr class="bg-light"> <div>
+
+            <td>
+                {{ form_widget(formMed['Enregistrer']) }}</td>
+        </div>
+
+
+            <td>
+                <h1></h1></td>
+        </tr>
+    {{ form_end(formMed) }} </table>
+{% endblock %}

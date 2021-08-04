@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block c  %}
+<div class="d-flex align-items-center">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ asset('affichers') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{ asset('affichers') }}">Devise</a></li>
+        </ol>
+    </nav>
+</div>
+{% endblock %}
+{% block title %}
+    <div>
+        <h4 style="color: #66ae62">List des devises</h4>
+
+    </div>
+<div class="card">
+    <div class="card-body">
+
+        <table id="tableac" class="table v-middle" >
+            <thead>
+            <tr class="bg-light">
+                <th class="border-top-0" >id</th>
+                <th class="border-top-0" >Nom devise</th>
+                <th class="border-top-0" >cout</th>
+                <th class="border-top-0" >unité devise</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for x in liststudent %}
+
+                <tr>
+
+                    <td>{{x.id}} </td>
+                    <td>{{ x.nomdev}} </td>
+                    <td>{{ x.cout}} </td>
+                    <td>{{ x.unitedev}} </td>
+                    </td>
+
+                </tr>
+
+
+            {% endfor %}</tbody>
+        </table></div></div>
+{% endblock %}

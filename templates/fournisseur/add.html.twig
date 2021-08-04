@@ -1,0 +1,28 @@
+{% extends 'baseadd.html.twig' %}
+{% block title%}
+
+<table class="table v-middle">
+    {{ form_start(formFournisseur,{'attr':{'novalidate' : 'novalidate'}}) }}
+    <tr class="bg-light"><div>
+            <td>{{ form_label(formFournisseur.nomf,'Nom Fournisseur') }}</td>
+            <td >{{ form_errors(formFournisseur.nomf) }}
+                {{ form_widget(formFournisseur.nomf) }}</td>
+        </div></tr>
+    <tr  class="bg-light"><div>
+            <td>{{ form_label(formFournisseur.mail,'Email') }}</td>
+            <td >{{ form_errors(formFournisseur.mail) }}
+                {{ form_widget(formFournisseur.mail) }}</td>
+        </div></tr>
+    <tr  class="bg-light"> <div>
+            <td>{{ form_label(formFournisseur.telephone,'Telephone') }}</td>
+            <td>{{ form_errors(formFournisseur.telephone) }}
+                {{ form_widget(formFournisseur.telephone) }}</td>
+        </div></tr>
+
+    <tr class="bg-light"> <div>
+
+            <td>
+                {{ form_widget(formFournisseur['Enregistrer']) }}</td>
+        </div></tr>
+    {{ form_end(formFournisseur) }} </table>
+{% endblock %}

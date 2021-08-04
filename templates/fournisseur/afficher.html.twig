@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block c  %}
+    <div class="d-flex align-items-center">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ asset('affichers') }}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="{{ asset('afficherfour') }}">Fournisseurs</a></li>
+            </ol>
+        </nav>
+    </div>
+{% endblock %}
+{% block title %}
+    <div >
+        <h4 style="color: #66ae62"> List des fournisseurs</h4>
+
+    </div>
+    <center>
+    <a href="{{ path('addFournisseur') }}" class="fas fa-user-plus fa-3x" ></a></center>
+    <table id="tableac" class="table v-middle">
+        <thead>
+        <tr class="bg-light">
+            <th class="border-top-0" >identifiant </th>
+            <th class="border-top-0">Nom fournisseur</th>
+            <th class="border-top-0">Email</th>
+            <th class="border-top-0">Téléphone</th>
+            <th class="border-top-0">Mise à jour</th>
+            <th class="border-top-0">Effacer </th>
+        </tr>
+        </thead>
+        <tbody>
+    {% for x in listfour %}
+        <tr>
+            <td> {{x.id}}</td>
+            <td> {{ x.nomf}}</td>
+            <td> {{ x.mail}}</td>
+            <td> {{ x.telephone}}</td>
+
+            <td> <a href="{{ path('updateFour',{'id':x.id}) }}"><i class="fa fa-edit" style="font-size:18px"></i>Modifier</a></td>
+            <td> <a href="{{ path('deleteFour',{'id':x.id}) }}"><i class="fa fa-trash" style="font-size:18px"></i>Supprimer</a></td>
+
+        </tr>
+    {% endfor %}</tbody>
+</table>
+{% endblock %}
