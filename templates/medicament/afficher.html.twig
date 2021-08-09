@@ -17,7 +17,7 @@
     <center>
 
         <a href="{{ path('addMed') }}" class="fas fa-file-medical fa-3x"  ></a></center>
-    <a href="{{ path('afficherCalcMed') }}" ><i class="fas fa-align-justify fa-3x"></i>  Liste des prix</a></center>
+    <a href="{{ path('afficherCalcMed') }}" ><i class="fas fa-align-justify fa-2x"></i>  Liste des prix</a></center>
     <div class="card">
     <div class="card-body">
         <table id="tableac" class="table v-middle" >
@@ -49,7 +49,7 @@
                     <td> {{ x.tauxug|number_format(2, '.', ' ') }} %</td>
 
                  {#   <td> {{ x.validation}} <a class="fas fa-check" href="{{ path('affichers')}}"></a><a><br></a><a class="fas fa-times-circle"></a></td>
-                 #}<td>  <a class="fas fa-check" href="{{ path('CalculMed',{'id':x.id})}}"></a></td>
+                 #}<td>  <a class="fa fa-calculator" href="{{ path('CalculMed',{'id':x.id})}}"></a></td>
 
                 </tr>
             {% endfor %}</tbody>
