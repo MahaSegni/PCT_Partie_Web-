@@ -21,8 +21,7 @@ class MedicamentType extends AbstractType
             ->add('remise',TextType::class, array('attr' => array('class' => 'form-control','style' => 'margin-right:5px')))
             ->add('ug',TextType::class, array('attr' => array('class' => 'form-control','style' => 'margin-right:5px')))
             ->add('tauxug',TextType::class, array('attr' => array('class' => 'form-control','style' => 'margin-right:5px')))
-            ->add('tva',TextType::class, array('attr' => array('class' => 'form-control','style' => 'margin-right:5px')))
-            ->add('fournisseur')
+           ->add('fournisseur')
             ->add('Enregistrer', SubmitType::class, array('attr' => array('class' => 'btn btn-info')))
         ;
     }

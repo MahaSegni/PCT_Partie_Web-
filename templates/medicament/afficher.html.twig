@@ -31,7 +31,7 @@
                 <th class="border-top-0" >remise</th>
                 <th class="border-top-0" >UG</th>
                 <th class="border-top-0" >Taux UG</th>
-
+                <th class="border-top-0" >Valider</th>
               {#   <th class="border-top-0" >Validation</th> #}
                 <th class="border-top-0" >Calcul</th>
             </tr>
@@ -47,7 +47,12 @@
                     <td> {{ x.remise|number_format(2, '.', ' ') }} %</td>
                     <td> {{ x.ug}}</td>
                     <td> {{ x.tauxug|number_format(2, '.', ' ') }} %</td>
-
+                    {% if x.validation == false %}
+                    <td><a class="fas fa-check" href="{{ path('valider',{'id':x.id})}}"> {{ x.validation|number_format() }} </a></td>
+               {% endif %}
+                    {% if x.validation == true %}
+                        <td><a class="fas fa-ban" href="{{ path('notvalider',{'id':x.id})}}"> {{ x.validation|number_format() }} </a></td>
+                    {% endif %}
                  {#   <td> {{ x.validation}} <a class="fas fa-check" href="{{ path('affichers')}}"></a><a><br></a><a class="fas fa-times-circle"></a></td>
                  #}<td>  <a class="fa fa-calculator" href="{{ path('CalculMed',{'id':x.id})}}"></a></td>
 

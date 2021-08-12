@@ -1,11 +1,49 @@
+{% extends 'register.html.twig' %}
+{% block title %}
 
+    <div class="container">
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
 
-    {{ form_end(registrationForm) }}
+            <div class="row">
+                <div class="iconmelon">
+                    <svg viewBox="0 0 32 32">
+                        <g filter="">
+                            <use xlink:href="#git"></use>
+                        </g>
+                    </svg>
+                </div>
+            </div>
 
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <div class="panel-title text-center">Bienvenue</div>
+                </div>
+
+                <div class="panel-body" >
+                    <form name="registrationForm" id="form" class="form-horizontal"  method="post">
+                        <div class="input-group" >
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input type="email" name="registrationForm[email]" id="registrationForm_email"  class="form-control" autocomplete="email" required autofocus>
+                        </div>
+                        <div class="input-group" >
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+                            <input type="password" name="registrationForm[plainPassword]" id="registrationForm_plainPassword"  class="form-control" autocomplete="current-password" required>
+                        </div>
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}"
+                        >
+
+                        <div class="form-group">
+                            <!-- Button -->
+                            <div class="col-sm-12 controls">
+                                <button type="submit" href="{{ asset('affichers') }}" name="registrationForm[Enregistrer]" id="registrationForm_Enregistrer" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

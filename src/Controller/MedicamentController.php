@@ -170,6 +170,32 @@ class MedicamentController extends AbstractController
 
     }
     /**
+     * @Route("/valider/{id}", name="valider")
+     */
+    public function valider($id)
+    {
+        $four = $this->getDoctrine()->getRepository(Medicament::class)->find($id);
+        $four->setValidation(true);
+        $em = $this->getDoctrine()->getManager();
+
+        $em->flush();
+        return $this->redirectToRoute('afficherMed');
+
+    }
+    /**
+     * @Route("/notvalider/{id}", name="notvalider")
+     */
+    public function notvalider($id)
+    {
+        $four = $this->getDoctrine()->getRepository(Medicament::class)->find($id);
+        $four->setValidation(false);
+        $em = $this->getDoctrine()->getManager();
+
+        $em->flush();
+        return $this->redirectToRoute('afficherMed');
+
+    }
+    /**
      * @Route("/afficherMedjson", name="afficherMedjson")
      */
     public function afficherMedjson(MedicamentRepository $repositoryf, NormalizerInterface $normalizer)

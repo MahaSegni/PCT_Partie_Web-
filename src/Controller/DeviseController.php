@@ -29,8 +29,8 @@ class DeviseController extends AbstractController
         $repositoryf= $this->getDoctrine()->getRepository(Devise::class);
         $Devise= $repositoryf->findAll();
         $json=$normalizer->normalize($Devise,'json',['groups'=>'post:read']);
-     //   return new Response(json_encode($json));
-        return $this->render('Devise/alldevise.html.twig',['data'=> $json]);
+       return new Response(json_encode($json));
+        //return $this->render('Devise/alldevise.html.twig',['data'=> $json]);
     }
     /**
      * @Route("/affichers", name="affichers")
